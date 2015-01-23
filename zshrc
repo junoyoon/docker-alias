@@ -24,16 +24,19 @@ alias dkd="docker run -d -P"
 alias dki="docker run -i -t -P"
 
 # Stop all containers
-dstop() { docker stop $(docker ps -a -q); }
+# dstop() { docker stop $(docker ps -a -q); }
 
 # Remove all containers
-drm() { docker rm $(docker ps -a -q); }
+# drm() { docker rm $(docker ps -a -q); }
 
 # Stop and Remove all containers
-alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+# alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # Remove all images
-dri() { docker rmi $(docker images -q); }
+# dri() { docker rmi $(docker images -q); }
+
+# dive into docker
+dexec() { docker exec -it $1 bash; }
 
 # Dockerfile build, e.g., $dbu tcnksm/test 
 dbu() { docker build -t=$1 .; }
